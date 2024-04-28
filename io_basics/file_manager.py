@@ -52,8 +52,6 @@ def directory_file_manager(directory_path:str,
         raise Exception(f"Something is broken, debug below:/n {str(ex)}")
     
 
-
-
 if __name__ == "__main__":
     directory_file_manager(directory_path= DOWNLOAD_PATH, 
                            media_file_type= MEDIA_FILE_TYPE 
