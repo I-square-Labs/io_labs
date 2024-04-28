@@ -8,7 +8,7 @@ import os
 import shutil
 from typing import (List, Dict)
 
-USER_NAME:str = ""
+USER_NAME:str = os.environ.get('USER', os.environ.get('USERNAME'))
 DOWNLOAD_PATH: str = f"c:/Users/{USER_NAME}/Downloads/"
 MEDIA_FILE_TYPE: Dict[str,List[str]] = {'Documents':['.txt','.pdf','.docx','.doc'],
                                         'Image':['.png','.jpg','.gif','.svg'],
@@ -34,6 +34,7 @@ def directory_file_manager(directory_path:str,
 
             for _dir_name, _file_types in media_file_type.items():
                 
+                # check file extension from media file type
                 if os.path.splitext(_file)[-1].lower() in _file_types:
 
                     _source_file_path: str = os.path.join(directory_path.strip(),_file)
@@ -54,7 +55,6 @@ def directory_file_manager(directory_path:str,
 
 
 if __name__ == "__main__":
-   
     directory_file_manager(directory_path= DOWNLOAD_PATH, 
                            media_file_type= MEDIA_FILE_TYPE 
                           )
